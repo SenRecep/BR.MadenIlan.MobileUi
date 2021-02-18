@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BR.MadenIlan.MobileUi</string>
+    <string name="ex_no_exception">İnternet bağlantınızı kontrol ediniz</string>
+    <string name="ex_common_error">Bir sorun meydana geldi. Lütfen daha sonra tekrar deneyiniz.</string>
+    <string name="_408">408</string>
+    <string name="recep_sen">RECEP ŞEN</string>
+</resources>
