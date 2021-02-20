@@ -41,6 +41,13 @@ class HelperService {
             editor.apply();
         }
 
+        fun getTokenSharedPreference(): Token? {
+            var preference =
+                GlobalApp.getAppContext().getSharedPreferences("ApiToken", Context.MODE_PRIVATE);
+            var tokenString: String? = preference.getString("token", null) ?: return null;
+            return Gson().fromJson(tokenString, Token::class.java);
+        }
+
         fun <T1, T2> handleApiError(response: Response<T1>): ApiResponse<T2> {
             var apiError: ApiError? = null;
             var errorBody = response.errorBody();
@@ -59,7 +66,7 @@ class HelperService {
         }
 
         fun showErrorMassageByToast(apiError: ApiError?) {
-            if (apiError==null) return;
+            if (apiError == null) return;
             var errorBuilder = StringBuilder();
             if (apiError.IsShow)
                 for (error in apiError.Errors)

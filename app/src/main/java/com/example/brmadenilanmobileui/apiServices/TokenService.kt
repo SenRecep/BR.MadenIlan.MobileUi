@@ -34,7 +34,7 @@ class TokenService() {
         }
 
         fun refreshToken(refreshToken: String): ApiResponse<Token> {
-            try {
+            return try {
                 var response = retrofitTokenServiceWithoutInterceptor.refreshToken(
                     BuildConfig.ClientId_ROP,
                     BuildConfig.ClientSecret_ROP,
@@ -42,10 +42,10 @@ class TokenService() {
                     refreshToken
                 ).execute();
 
-                return if (!response.isSuccessful) HelperService.handleApiError(response);
+                if (!response.isSuccessful) HelperService.handleApiError(response);
                 else ApiResponse(true, response.body() as Token);
             } catch (ex: Exception) {
-                return HelperService.handleException(ex);
+                HelperService.handleException(ex);
             }
         }
 

@@ -54,16 +54,15 @@ class SignUpFragment : Fragment() {
                 text_signup_password.editText?.text.toString()
             );
             viewModel.signUp(userSignUp).observe(viewLifecycleOwner, Observer {
-                when (it) {
-                    true -> {
-                        viewPager.currentItem = 0;
-                        CoroutineScope(Dispatchers.Main).launch {
-                            delay(1000);
-                            HelperService.onAlertDialogJustOk(fragmentView,"Kayıt işlemi başarı ile gerçekleştirildi. Kullanıcı adı ve parola ile giriş yapabilirsiniz.");
-                        };
-                    }
-                    else -> {
-                    }
+                if (it) {
+                    viewPager.currentItem = 0;
+                    CoroutineScope(Dispatchers.Main).launch {
+                        delay(1000);
+                        HelperService.onAlertDialogJustOk(
+                            fragmentView,
+                            "Kayıt işlemi başarı ile gerçekleştirildi. Kullanıcı adı ve parola ile giriş yapabilirsiniz."
+                        );
+                    };
                 }
             })
         }

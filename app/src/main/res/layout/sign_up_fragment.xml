@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:gravity="center"
                 android:text="ÜYE OL"
                 android:textSize="30sp" />
 
@@ -60,12 +61,14 @@
                 android:id="@+id/text_signup_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Parolanız:">
+                android:hint="Parolanız:"
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="10dp"
+                    android:password="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
